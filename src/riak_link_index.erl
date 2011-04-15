@@ -266,9 +266,7 @@ apply_index_hook({struct, Hook}, MD, Value) ->
     Mod = proplists:get_value(<<"mod">>, Hook),
     Fun = proplists:get_value(<<"fun">>, Hook),
     JSName = proplists:get_value(<<"name">>, Hook),
-    invoke_hook(Mod, Fun, JSName, MD, Value);
-apply_index_hook(HookDef, _, _) ->
-    {error, {invalid_hook_def, HookDef}}.
+    invoke_hook(Mod, Fun, JSName, MD, Value).
 
 invoke_hook(Mod0, Fun0, undefined, MD, Value)
     when Mod0 /= undefined, Fun0 /= undefined ->
